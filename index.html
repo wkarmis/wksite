@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Karmis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 525px;
+            margin: 0;
+            padding: 30px;
+            min-height: 100vh;
+        }
+        
+        /* Contact Section */
+        .contact {
+            margin-bottom: 45px;
+        }
+        
+        .contact-item {
+            margin-bottom: 4.5px;
+        }
+        
+        .contact-item a {
+            color: #000;
+            text-decoration: none;
+        }
+        
+        /* Works List */
+        .works-list {
+            list-style: none;
+            margin-bottom: 45px;
+        }
+        
+        .work-item {
+            margin-bottom: 7.5px;
+            cursor: pointer;
+            position: relative;
+            padding-left: 22.5px;
+            font-size: 15px;
+        }
+        
+        .work-item::before {
+            content: attr(data-number);
+            position: absolute;
+            left: 0;
+            opacity: 0.3;
+            font-size: 13.5px;
+        }
+        
+        .work-item:hover::before {
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+        
+        .work-item.active::before {
+            opacity: 1;
+        }
+        
+        .collab-icon {
+            display: inline-block;
+            width: 15px;
+            font-size: 15px;
+            text-align: left;
+        }
+        
+        /* Legend */
+        .legend {
+            font-size: 13.5px;
+            color: #000;
+            margin-bottom: 45px;
+        }
+        
+        /* Project Details */
+        .project-detail {
+            display: none;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1.5px solid #000;
+        }
+        
+        .project-detail.active {
+            display: block;
+        }
+        
+        .project-title {
+            font-size: 15px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+        
+        .project-meta {
+            margin-bottom: 4.5px;
+            opacity: 0.7;
+        }
+        
+        .project-description {
+            margin: 22.5px 0;
+            line-height: 1.5;
+        }
+        
+        .project-image {
+            width: 100%;
+            max-width: 525px;
+            height: auto;
+            margin: 22.5px 0;
+        }
+        
+        /* External links */
+        .external-links {
+            margin-top: 22.5px;
+            text-align: right;
+        }
+        
+        .external-links a {
+            color: #000;
+            text-decoration: none;
+            font-size: 13.5px;
+            margin-left: 22.5px;
+        }
+        
+        .external-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Preview functionality */
+        .track-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5px;
+        }
+        
+        .track-info {
+            flex: 1;
+        }
+        
+        .preview-box {
+            font-size: 10.5px;
+            cursor: pointer;
+            margin-left: 15px;
+            opacity: 0.5;
+        }
+        
+        .preview-box:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .timer-display {
+            display: none;
+            font-size: 10.5px;
+            cursor: pointer;
+            margin-left: 15px;
+            opacity: 0.8;
+        }
+        
+        .timer-display.active {
+            display: inline-block;
+        }
+        
+        .timer-display:hover {
+            opacity: 1;
+        }
+        
+        /* Tracklist specific styles */
+        .tracklist-section {
+            margin-top: 15px;
+        }
+        
+        .tracklist-title {
+            margin-bottom: 7.5px;
+        }
+        
+        .tracklist-content {
+            font-size: 13.5px;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 22.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contact">
+            <div class="contact-item">
+                <span>Will Karmis</span>
+            </div>
+            <div class="contact-item">
+                <a href="mailto:willkarmis@gmail.com">willkarmis@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <a href="https://instagram.com/willkarmis" target="_blank">@willkarmis</a>
+            </div>
+        </div>
+        
+        <ul class="works-list">
+            <li class="work-item" data-project="project2" data-number="2">
+                <span class="collab-icon"></span>Will Karmis
+            </li>
+            <li class="work-item" data-project="project1" data-number="1">
+                <span class="collab-icon">+</span>T.B.S. CO., LTD. LOT#001 SOUND WORX: DATA
+            </li>
+            <li class="work-item" data-project="project0" data-number="0">
+                <span class="collab-icon">+</span>T.B.S. CO., LTD. LOT#001 at Chidori Bunka
+            </li>
+        </ul>
+        
+        <div class="legend">
+            + Collaboration
+        </div>
+        
+        <!-- Project 2: Self-titled -->
+        <div class="project-detail" id="project2">
+            <div class="project-title">Will Karmis</div>
+            <div class="project-meta">2025</div>
+            <div class="project-meta">Digital Release</div>
+            <div class="project-description">
+              Five tracks from a year of tape delay sessions. An AKAI GX-260D acquired at the end of 2024 made tape-based looping the foundation for how I worked in 2025. Stacked tones captured onto an endlessly running loop. The loop left to run for hours. Signal passing through external delays, each repetition shifting the material slightly. Changes accumulating slowly. Session recordings collected throughout 2025, these five were selected and edited down into moments.
+
+
+
+                <div class="tracklist-section">
+                    <div class="tracklist-title">Tracklist</div>
+                    <div class="tracklist-content">
+                        <div class="track-line">
+                            <span class="track-info">1 &nbsp;&nbsp;Hyperlight - 08:37</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">2 &nbsp;&nbsp;Shape of Something Passing - 03:56</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">3 &nbsp;&nbsp;Motion - 04:12</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">4 &nbsp;&nbsp;Glider - 07:46</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">5 &nbsp;&nbsp;Empty Moon - 03:45</span>
+                        </div>
+                        <br>
+                        Total Length: 28:16
+                    </div>
+                </div>
+            </div>
+            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/1_Cover_Art_Final.jpg" alt="Will Karmis">
+            <div class="external-links">
+                <a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Listen</a>
+                <a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Purchase</a>
+            </div>
+        </div>
+        
+        <!-- Project 1: SOUND WORX: DATA -->
+        <div class="project-detail" id="project1">
+            <div class="project-title">T.B.S. CO., LTD. LOT#001 SOUND WORX: DATA</div>
+            <div class="project-meta">2025</div>
+            <div class="project-meta">CD + Digital Download</div>
+            <div class="project-meta">Collaboration with <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a> and <a href="https://www.instagram.com/pioneer_kamaboko/?hl=en" target="_blank" style="color: #000; text-decoration: underline;">Pioneer Kamaboko</a></div>
+            <div class="project-description">
+                SOUND WORX: DATA is a 16-track album compiling all audio materials created for T.B.S. CO., LTD. LOT#001, a nine-channel installation for <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a>. Source sounds edited and arranged into separate tracks for album playback.
+                <div class="tracklist-section">
+                    <div class="tracklist-title">Tracklist</div>
+                    <div class="tracklist-content">
+                        <div class="track-line">
+                            <span class="track-info">1 &nbsp;&nbsp;001_[T.A.R.D.]LOT#001 DATA_POLICY - 3:38</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">2 &nbsp;&nbsp;Blar - 2:56</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">3 &nbsp;&nbsp;Blar_2 - 1:48</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">4 &nbsp;&nbsp;Awem_0018 1 - 2:47</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">5 &nbsp;&nbsp;241125_ap - 0:32</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">6 &nbsp;&nbsp;Rsp_40C_13W - 0:28</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">7 &nbsp;&nbsp;Drag_Net_Vol.(35) - 0:37</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">8 &nbsp;&nbsp;PB_XXX - 1:08</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">9 &nbsp;&nbsp;CAS_TLTP_C_PK - 0:57</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">10 &nbsp;&nbsp;3_Vol.(MAX) - 1:10</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">11 &nbsp;&nbsp;YRLLC_Awem_0019 - 1:10</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">12 &nbsp;&nbsp;N1_Vol.(35–99_) - 1:25</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">13 &nbsp;&nbsp;PS_14_DAR - 1:59</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">14 &nbsp;&nbsp;00000_CB_2k_xr. - 2:56</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">15 &nbsp;&nbsp;Q_Fami_dot_Awem_0020_(Vol. 35–99_) - 5:11</span>
+                        </div>
+                        <div class="track-line">
+                            <span class="track-info">16 &nbsp;&nbsp;TGPE_(SLOT)_D_21_3 - 3:12</span>
+                            <span class="preview-box" onclick="startPreview(this)">preview</span>
+                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
+                        </div>
+                        <br>
+                        Total Length: 31:54
+                    </div>
+                </div>
+            </div>
+            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/Yaskuo_Robotics_Sound_Worx_Transparent_CD.png" alt="T.B.S. CO., LTD. LOT#001 SOUND WORX: DATA">
+            <div class="external-links">
+                <a href="https://twinsbrandservices.com/sound_worx" target="_blank">Purchase</a>
+            </div>
+        </div>
+        
+        <!-- Project 0: Installation -->
+        <div class="project-detail" id="project0">
+            <div class="project-title">T.B.S. CO., LTD. LOT#001 at Chidori Bunka</div>
+            <div class="project-meta">2025</div>
+            <div class="project-meta">Multi-channel (9.0) audio installation</div>
+            <div class="project-meta">Collaboration with <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a> and <a href="https://www.instagram.com/pioneer_kamaboko/?hl=en" target="_blank" style="color: #000; text-decoration: underline;">Pioneer Kamaboko</a></div>
+            <div class="project-description">
+                Nine-channel audio installation for <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a>, presented at <a href="http://chidoribunka.jp/" target="_blank" style="color: #000; text-decoration: underline;">Chidori Bunka</a>. Nine speakers placed among a series of Twins Brand Services inflatable sculptures, each delivering an independent generative audio stream. SuperCollider manages multi-file granular playback, generating randomized windows that continuously reorganize into an evolving atmosphere.
+            </div>
+            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/YR_LOT001_CB_POSTER_1.JPG" alt="T.B.S. CO., LTD. LOT#001 at Chidori Bunka">
+            <div class="external-links">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Preview functionality
+        let currentTimer = null;
+        let currentAudio = null;
+        
+        function startPreview(element) {
+            // Stop any currently playing preview
+            if (currentTimer) {
+                const activeTimer = document.querySelector('.timer-display.active');
+                if (activeTimer) {
+                    stopPreview(activeTimer);
+                }
+            }
+            
+            const timerDisplay = element.nextElementSibling;
+            element.style.display = 'none';
+            timerDisplay.classList.add('active');
+            
+            // Get track name from the track info
+            const trackInfo = element.closest('.track-line').querySelector('.track-info').innerText;
+            
+            // Create and play audio based on track
+            if (trackInfo.includes('Hyperlight')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/qhPVPDaKw6V7dsvnnMLAdNvlX455DmuU');
+            } else if (trackInfo.includes('Shape of Something Passing')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/OJTSw9Ogk3cihfi1kvKfhCBbFirfFP9r');
+            } else if (trackInfo.includes('Motion')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/xcnV0gx8QEIs1e5A9EnRjXydZx5AfU32');
+            } else if (trackInfo.includes('Drag_Net_Vol')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/EdMb7IYf7j5h9ozFnVYGBtpqHr57J9G9');
+            } else if (trackInfo.includes('YRLLC_Awem_0019')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/ZwrgTN67rUrGQ6HlkAi1STV51FlDgg2H');
+            } else if (trackInfo.includes('CAS_TLTP_C_PK')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/UmlWMIcPAZHOAlr9iwkjlt6AIuKCJqJf');
+            } else if (trackInfo.includes('TGPE_(SLOT)')) {
+                currentAudio = new Audio('https://audio.jukehost.co.uk/Enbe9cJGO2MGWd7lvDjvguyJRMzFlwJG');
+            }
+            
+            // Play the audio
+            if (currentAudio) {
+                currentAudio.play();
+            }
+            
+            let seconds = 0;
+            currentTimer = setInterval(() => {
+                seconds++;
+                timerDisplay.innerHTML = `\u25B6\uFE0E 0:${seconds < 10 ? '0' : ''}${seconds}`;
+                
+                // Auto-stop after 30 seconds
+                if (seconds >= 30) {
+                    stopPreview(timerDisplay);
+                }
+            }, 1000);
+        }
+        
+        function stopPreview(element) {
+            // Clear timer
+            if (currentTimer) {
+                clearInterval(currentTimer);
+                currentTimer = null;
+            }
+            
+            // Stop audio
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentAudio = null;
+            }
+            
+            // Reset display
+            const previewBox = element.previousElementSibling;
+            element.classList.remove('active');
+            element.innerHTML = '\u25B6\uFE0E 0:00';
+            previewBox.style.display = 'inline-block';
+        }
+        
+        // Handle project switching
+        const workItems = document.querySelectorAll('.work-item');
+        const projectDetails = document.querySelectorAll('.project-detail');
+        
+        workItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const projectId = this.dataset.project;
+                
+                // Remove active class from all items
+                workItems.forEach(w => w.classList.remove('active'));
+                projectDetails.forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Show corresponding project
+                const targetProject = document.getElementById(projectId);
+                if (targetProject) {
+                    targetProject.classList.add('active');
+                    // Smooth scroll to project
+                    setTimeout(() => {
+                        targetProject.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

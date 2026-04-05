@@ -1,493 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will Karmis</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background: #fff;
-            color: #000;
-            font-size: 15px;
-            line-height: 1.4;
-        }
-        
-        .container {
-            max-width: 525px;
-            margin: 0;
-            padding: 30px;
-            min-height: 100vh;
-        }
-        
-        /* Contact Section */
-        .contact {
-            margin-bottom: 45px;
-        }
-        
-        .contact-item {
-            margin-bottom: 4.5px;
-        }
-        
-        .contact-item a {
-            color: #000;
-            text-decoration: none;
-        }
-        
-        /* Works List */
-        .works-list {
-            list-style: none;
-            margin-bottom: 45px;
-        }
-        
-        .work-item {
-            margin-bottom: 7.5px;
-            cursor: pointer;
-            position: relative;
-            padding-left: 22.5px;
-            font-size: 15px;
-        }
-        
-        .work-item::before {
-            content: attr(data-number);
-            position: absolute;
-            left: 0;
-            opacity: 0.3;
-            font-size: 13.5px;
-        }
-        
-        .work-item:hover::before {
-            opacity: 1;
-            transition: opacity 0.2s;
-        }
-        
-        .work-item.active::before {
-            opacity: 1;
-        }
-        
-        .collab-icon {
-            display: inline-block;
-            width: 15px;
-            font-size: 15px;
-            text-align: left;
-        }
-        
-        /* Legend */
-        .legend {
-            font-size: 13.5px;
-            color: #000;
-            margin-bottom: 45px;
-        }
-        
-        /* Project Details */
-        .project-detail {
-            display: none;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1.5px solid #000;
-        }
-        
-        .project-detail.active {
-            display: block;
-        }
-        
-        .project-title {
-            font-size: 15px;
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
-        
-        .project-meta {
-            margin-bottom: 4.5px;
-            opacity: 0.7;
-        }
-        
-        .project-description {
-            margin: 22.5px 0;
-            line-height: 1.5;
-        }
-        
-        .project-image {
-            width: 100%;
-            max-width: 525px;
-            height: auto;
-            margin: 22.5px 0;
-        }
-        
-        /* External links */
-        .external-links {
-            margin-top: 22.5px;
-            text-align: right;
-        }
-        
-        .external-links a {
-            color: #000;
-            text-decoration: none;
-            font-size: 13.5px;
-            margin-left: 22.5px;
-        }
-        
-        .external-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Preview functionality */
-        .track-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5px;
-        }
-        
-        .track-info {
-            flex: 1;
-        }
-        
-        .preview-box {
-            font-size: 10.5px;
-            cursor: pointer;
-            margin-left: 15px;
-            opacity: 0.5;
-        }
-        
-        .preview-box:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-        
-        .timer-display {
-            display: none;
-            font-size: 10.5px;
-            cursor: pointer;
-            margin-left: 15px;
-            opacity: 0.8;
-        }
-        
-        .timer-display.active {
-            display: inline-block;
-        }
-        
-        .timer-display:hover {
-            opacity: 1;
-        }
-        
-        /* Tracklist specific styles */
-        .tracklist-section {
-            margin-top: 15px;
-        }
-        
-        .tracklist-title {
-            margin-bottom: 7.5px;
-        }
-        
-        .tracklist-content {
-            font-size: 13.5px;
-            line-height: 1.4;
-            opacity: 0.8;
-        }
-        
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .container {
-                padding: 22.5px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will Karmis</title>
+<link rel="icon" href="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/1_Cover_Art_Final.jpg" type="image/jpeg">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#fff;color:#000;font-size:14px;line-height:1.45}
+.c{max-width:528px;padding:32px;min-height:100vh}
+.cn{margin-bottom:4px;font-weight:400;letter-spacing:.01em}
+.ci{margin-bottom:4px;opacity:.5}
+.ci a{color:#000;text-decoration:none;transition:opacity .2s}.ci a:hover{opacity:1}
+.ct{margin-bottom:48px}
+.wl{list-style:none;margin-bottom:48px}
+.wi{margin-bottom:8px;cursor:pointer;position:relative;padding-left:0;font-size:14px;transition:opacity .2s}
+.wi::before{display:none}
+.wi:hover::before{opacity:1;transition:opacity .2s}
+.wi.a::before{opacity:1}
+.wl.ha .wi:not(.a){opacity:.5}
+.wl.ha .wi:not(.a):hover{opacity:.8}
+.wy{font-size:12px;opacity:.5}
+.md{opacity:.3;margin:0 4px;font-size:12px}
+.pd{display:none;margin-top:32px;padding-top:32px;border-top:1px solid rgba(0,0,0,.15)}
+.pd.a{display:block}
+.pt{font-size:14px;margin-bottom:16px;font-weight:400}
+.pm{margin-bottom:4px;opacity:.5}
+.pm a{color:#000;text-decoration:underline;text-underline-offset:2px}
+.ds{margin:24px 0;line-height:1.55;font-size:14px}
+.ds a{color:#000;text-decoration:underline;text-underline-offset:2px}
+.pi{width:100%;max-width:528px;height:auto;margin:24px 0}
+.el{margin-top:24px}
+.el a{color:#000;text-decoration:none;font-size:12px;margin-right:24px;opacity:.5;transition:opacity .2s}
+.el a:hover{opacity:1;text-decoration:underline;text-underline-offset:2px}
+.tl{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.ti{flex:1}
+.pb{font-size:10px;cursor:pointer;margin-left:16px;opacity:.3;transition:opacity .2s}
+.pb:hover{opacity:1;text-decoration:underline}
+.td{display:none;font-size:10px;cursor:pointer;margin-left:16px;opacity:.5}
+.td.a{display:inline-block}
+.ts{margin-top:16px}
+.tt{margin-bottom:8px}
+.tc{font-size:12px;line-height:1.45;opacity:.5}
+.to{margin-top:12px}
+@media(max-width:768px){.c{padding:24px}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="contact">
-            <div class="contact-item">
-                <span>Will Karmis</span>
-            </div>
-            <div class="contact-item">
-                <a href="mailto:willkarmis@gmail.com">willkarmis@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <a href="https://instagram.com/willkarmis" target="_blank">@willkarmis</a>
-            </div>
-        </div>
-        
-        <ul class="works-list">
-            <li class="work-item" data-project="project3" data-number="3">
-                <span class="collab-icon"></span>Endless Tape
-            </li>
-            <li class="work-item" data-project="project2" data-number="2">
-                <span class="collab-icon"></span>Will Karmis
-            </li>
-            <li class="work-item" data-project="project1" data-number="1">
-                <span class="collab-icon">+</span>T.B.S. CO., LTD. LOT#001 SOUND WORX: DATA
-            </li>
-            <li class="work-item" data-project="project0" data-number="0">
-                <span class="collab-icon">+</span>T.B.S. CO., LTD. LOT#001 at Chidori Bunka
-            </li>
-        </ul>
-        
-        <div class="legend">
-            + Collaboration
-        </div>
-        
-        <!-- Project 3: Endless Tape -->
-        <div class="project-detail" id="project3">
-            <div class="project-title">Endless Tape</div>
-            <div class="project-meta">2026</div>
-            <div class="project-meta">Cassette + Digital Download</div>
-            <div class="project-description">
-                Sixty-second endless tape preloaded with a randomly assigned sample from one of the five tracks. Smoke shell, laser engraved crystal clear Norelco case, resealable sleeve. Digital download code included. Type I normal bias. Erase, record, reuse. Limited to 100.
-            </div>
-            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/1_Endless_Tape_Front.jpeg" alt="Endless Tape">
-            <div class="external-links">
-                <a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Purchase</a>
-            </div>
-        </div>
-        
-        <!-- Project 2: Self-titled -->
-        <div class="project-detail" id="project2">
-            <div class="project-title">Will Karmis</div>
-            <div class="project-meta">2025</div>
-            <div class="project-meta">Digital Release</div>
-            <div class="project-description">
-              Five tracks from a year of tape delay sessions. An AKAI GX-260D acquired at the end of 2024 made tape-based looping the foundation for how I worked in 2025. Stacked tones captured onto an endlessly running loop. Signal passing through external delays, each repetition shifting the material slightly. Changes accumulating slowly. Session recordings collected throughout 2025, these five were selected and edited down into moments.
-
-
-
-                <div class="tracklist-section">
-                    <div class="tracklist-title">Tracklist</div>
-                    <div class="tracklist-content">
-                        <div class="track-line">
-                            <span class="track-info">1 &nbsp;&nbsp;Hyperlight - 08:37</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">2 &nbsp;&nbsp;Shape of Something Passing - 03:56</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">3 &nbsp;&nbsp;Motion - 04:12</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">4 &nbsp;&nbsp;Glider - 07:46</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">5 &nbsp;&nbsp;Empty Moon - 03:45</span>
-                        </div>
-                        <br>
-                        Total Length: 28:16
-                    </div>
-                </div>
-            </div>
-            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/1_Cover_Art_Final.jpg" alt="Will Karmis">
-            <div class="external-links">
-                <a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Listen</a>
-                <a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Purchase</a>
-            </div>
-        </div>
-        
-        <!-- Project 1: SOUND WORX: DATA -->
-        <div class="project-detail" id="project1">
-            <div class="project-title">T.B.S. CO., LTD. LOT#001 SOUND WORX: DATA</div>
-            <div class="project-meta">2025</div>
-            <div class="project-meta">CD + Digital Download</div>
-            <div class="project-meta">Collaboration with <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a> and <a href="https://www.instagram.com/pioneer_kamaboko/?hl=en" target="_blank" style="color: #000; text-decoration: underline;">Pioneer Kamaboko</a></div>
-            <div class="project-description">
-                SOUND WORX: DATA is a 16-track album compiling all audio materials created for T.B.S. CO., LTD. LOT#001, a nine-channel installation for <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a>. Source sounds edited and arranged into separate tracks for album playback.
-                <div class="tracklist-section">
-                    <div class="tracklist-title">Tracklist</div>
-                    <div class="tracklist-content">
-                        <div class="track-line">
-                            <span class="track-info">1 &nbsp;&nbsp;001_[T.A.R.D.]LOT#001 DATA_POLICY - 3:38</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">2 &nbsp;&nbsp;Blar - 2:56</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">3 &nbsp;&nbsp;Blar_2 - 1:48</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">4 &nbsp;&nbsp;Awem_0018 1 - 2:47</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">5 &nbsp;&nbsp;241125_ap - 0:32</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">6 &nbsp;&nbsp;Rsp_40C_13W - 0:28</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">7 &nbsp;&nbsp;Drag_Net_Vol.(35) - 0:37</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">8 &nbsp;&nbsp;PB_XXX - 1:08</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">9 &nbsp;&nbsp;CAS_TLTP_C_PK - 0:57</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">10 &nbsp;&nbsp;3_Vol.(MAX) - 1:10</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">11 &nbsp;&nbsp;YRLLC_Awem_0019 - 1:10</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">12 &nbsp;&nbsp;N1_Vol.(35–99_) - 1:25</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">13 &nbsp;&nbsp;PS_14_DAR - 1:59</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">14 &nbsp;&nbsp;00000_CB_2k_xr. - 2:56</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">15 &nbsp;&nbsp;Q_Fami_dot_Awem_0020_(Vol. 35–99_) - 5:11</span>
-                        </div>
-                        <div class="track-line">
-                            <span class="track-info">16 &nbsp;&nbsp;TGPE_(SLOT)_D_21_3 - 3:12</span>
-                            <span class="preview-box" onclick="startPreview(this)">preview</span>
-                            <span class="timer-display" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span>
-                        </div>
-                        <br>
-                        Total Length: 31:54
-                    </div>
-                </div>
-            </div>
-            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/Yaskuo_Robotics_Sound_Worx_Transparent_CD.png" alt="T.B.S. CO., LTD. LOT#001 SOUND WORX: DATA">
-            <div class="external-links">
-                <a href="https://twinsbrandservices.com/sound_worx" target="_blank">Purchase</a>
-            </div>
-        </div>
-        
-        <!-- Project 0: Installation -->
-        <div class="project-detail" id="project0">
-            <div class="project-title">T.B.S. CO., LTD. LOT#001 at Chidori Bunka</div>
-            <div class="project-meta">2025</div>
-            <div class="project-meta">Multi-channel (9.0) audio installation</div>
-            <div class="project-meta">Collaboration with <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a> and <a href="https://www.instagram.com/pioneer_kamaboko/?hl=en" target="_blank" style="color: #000; text-decoration: underline;">Pioneer Kamaboko</a></div>
-            <div class="project-description">
-                Nine-channel audio installation for <a href="https://twinsbrandservices.com" target="_blank" style="color: #000; text-decoration: underline;">Twins Brand Services</a>, presented at <a href="http://chidoribunka.jp/" target="_blank" style="color: #000; text-decoration: underline;">Chidori Bunka</a>. Nine speakers placed among a series of Twins Brand Services inflatable sculptures, each delivering an independent generative audio stream. SuperCollider manages multi-file granular playback, generating randomized windows that continuously reorganize into an evolving atmosphere.
-            </div>
-            <img class="project-image" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/YR_LOT001_CB_POSTER_1.JPG" alt="T.B.S. CO., LTD. LOT#001 at Chidori Bunka">
-            <div class="external-links">
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Preview functionality
-        let currentTimer = null;
-        let currentAudio = null;
-        
-        function startPreview(element) {
-            // Stop any currently playing preview
-            if (currentTimer) {
-                const activeTimer = document.querySelector('.timer-display.active');
-                if (activeTimer) {
-                    stopPreview(activeTimer);
-                }
-            }
-            
-            const timerDisplay = element.nextElementSibling;
-            element.style.display = 'none';
-            timerDisplay.classList.add('active');
-            
-            // Get track name from the track info
-            const trackInfo = element.closest('.track-line').querySelector('.track-info').innerText;
-            
-            // Create and play audio based on track
-            if (trackInfo.includes('Hyperlight')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/qhPVPDaKw6V7dsvnnMLAdNvlX455DmuU');
-            } else if (trackInfo.includes('Shape of Something Passing')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/OJTSw9Ogk3cihfi1kvKfhCBbFirfFP9r');
-            } else if (trackInfo.includes('Motion')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/xcnV0gx8QEIs1e5A9EnRjXydZx5AfU32');
-            } else if (trackInfo.includes('Drag_Net_Vol')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/EdMb7IYf7j5h9ozFnVYGBtpqHr57J9G9');
-            } else if (trackInfo.includes('YRLLC_Awem_0019')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/ZwrgTN67rUrGQ6HlkAi1STV51FlDgg2H');
-            } else if (trackInfo.includes('CAS_TLTP_C_PK')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/UmlWMIcPAZHOAlr9iwkjlt6AIuKCJqJf');
-            } else if (trackInfo.includes('TGPE_(SLOT)')) {
-                currentAudio = new Audio('https://audio.jukehost.co.uk/Enbe9cJGO2MGWd7lvDjvguyJRMzFlwJG');
-            }
-            
-            // Play the audio
-            if (currentAudio) {
-                currentAudio.play();
-            }
-            
-            let seconds = 0;
-            currentTimer = setInterval(() => {
-                seconds++;
-                timerDisplay.innerHTML = `\u25B6\uFE0E 0:${seconds < 10 ? '0' : ''}${seconds}`;
-                
-                // Auto-stop after 30 seconds
-                if (seconds >= 30) {
-                    stopPreview(timerDisplay);
-                }
-            }, 1000);
-        }
-        
-        function stopPreview(element) {
-            // Clear timer
-            if (currentTimer) {
-                clearInterval(currentTimer);
-                currentTimer = null;
-            }
-            
-            // Stop audio
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-                currentAudio = null;
-            }
-            
-            // Reset display
-            const previewBox = element.previousElementSibling;
-            element.classList.remove('active');
-            element.innerHTML = '\u25B6\uFE0E 0:00';
-            previewBox.style.display = 'inline-block';
-        }
-        
-        // Handle project switching
-        const workItems = document.querySelectorAll('.work-item');
-        const projectDetails = document.querySelectorAll('.project-detail');
-        
-        workItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const projectId = this.dataset.project;
-                
-                // Remove active class from all items
-                workItems.forEach(w => w.classList.remove('active'));
-                projectDetails.forEach(p => p.classList.remove('active'));
-                
-                // Add active class to clicked item
-                this.classList.add('active');
-                
-                // Show corresponding project
-                const targetProject = document.getElementById(projectId);
-                if (targetProject) {
-                    targetProject.classList.add('active');
-                    // Smooth scroll to project
-                    setTimeout(() => {
-                        targetProject.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                }
-            });
-        });
-    </script>
+<div class="c">
+<div class="ct">
+<div class="cn">Will Karmis</div>
+<div class="ci"><a href="mailto:info@willkarmis.com">info@willkarmis.com</a></div>
+<div class="ci"><a href="https://instagram.com/willkarmis" target="_blank">@willkarmis</a></div>
+</div>
+<ul class="wl">
+<li class="wi" data-project="p5" data-number="5">Will Karmis<span class="wy" style="margin-left:12px">2025</span></li>
+<li class="wi" data-project="p4" data-number="4">SOUND WORX: DATA<span class="wy" style="margin-left:12px">2025</span></li>
+<li class="wi" data-project="p3" data-number="3">LOT#001 at Chidori Bunka<span class="wy" style="margin-left:12px">2025</span></li>
+<li class="wi" data-project="p2" data-number="2">Curls<span class="wy" style="margin-left:12px">2017</span></li>
+<li class="wi" data-project="p1" data-number="1">Bending<span class="wy" style="margin-left:12px">2016</span></li>
+</ul>
+<div class="pd" id="p5">
+<div class="pt">Will Karmis</div>
+<div class="pm">2025</div>
+<div class="pm">Tape + digital download</div>
+<div class="ds">Five tracks from a year of tape delay sessions. Tones captured onto an endlessly running loop on an AKAI GX-260D, passed through external delays, each repetition shifting the material. Selected and edited down into moments.
+<div class="ts"><div class="tt">Tracklist</div><div class="tc">
+<div class="tl"><span class="ti">1 &nbsp;&nbsp;Hyperlight - 08:37</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">2 &nbsp;&nbsp;Shape of Something Passing - 03:56</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">3 &nbsp;&nbsp;Motion - 04:12</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">4 &nbsp;&nbsp;Glider - 07:46</span></div>
+<div class="tl"><span class="ti">5 &nbsp;&nbsp;Empty Moon - 03:45</span></div>
+<div class="to">Total Length: 28:16</div></div></div></div>
+<img class="pi" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/1_Cover_Art_Final.jpg" alt="Will Karmis">
+<div class="el"><a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Listen</a><a href="https://willkarmis.bandcamp.com/album/will-karmis" target="_blank">Purchase</a></div></div>
+<div class="pd" id="p4">
+<div class="pt">SOUND WORX: DATA</div>
+<div class="pm">2025</div>
+<div class="pm">CD + digital download</div>
+<div class="pm">Collaboration with <a href="https://twinsbrandservices.com" target="_blank">Twins Brand Services</a> and <a href="https://www.instagram.com/pioneer_kamaboko/?hl=en" target="_blank">Pioneer Kamaboko</a></div>
+<div class="ds">Sixteen tracks compiling all audio materials created for <a href="#" onclick="document.querySelector('[data-project=p3]').click();return false;">LOT#001</a>. Source sounds from a nine-channel installation, edited and arranged for album playback.
+<div class="ts"><div class="tt">Tracklist</div><div class="tc">
+<div class="tl"><span class="ti">1 &nbsp;&nbsp;001_[T.A.R.D.]LOT#001 DATA_POLICY - 3:38</span></div>
+<div class="tl"><span class="ti">2 &nbsp;&nbsp;Blar - 2:56</span></div>
+<div class="tl"><span class="ti">3 &nbsp;&nbsp;Blar_2 - 1:48</span></div>
+<div class="tl"><span class="ti">4 &nbsp;&nbsp;Awem_0018 1 - 2:47</span></div>
+<div class="tl"><span class="ti">5 &nbsp;&nbsp;241125_ap - 0:32</span></div>
+<div class="tl"><span class="ti">6 &nbsp;&nbsp;Rsp_40C_13W - 0:28</span></div>
+<div class="tl"><span class="ti">7 &nbsp;&nbsp;Drag_Net_Vol.(35) - 0:37</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">8 &nbsp;&nbsp;PB_XXX - 1:08</span></div>
+<div class="tl"><span class="ti">9 &nbsp;&nbsp;CAS_TLTP_C_PK - 0:57</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">10 &nbsp;&nbsp;3_Vol.(MAX) - 1:10</span></div>
+<div class="tl"><span class="ti">11 &nbsp;&nbsp;YRLLC_Awem_0019 - 1:10</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">12 &nbsp;&nbsp;N1_Vol.(35-99_) - 1:25</span></div>
+<div class="tl"><span class="ti">13 &nbsp;&nbsp;PS_14_DAR - 1:59</span></div>
+<div class="tl"><span class="ti">14 &nbsp;&nbsp;00000_CB_2k_xr. - 2:56</span></div>
+<div class="tl"><span class="ti">15 &nbsp;&nbsp;Q_Fami_dot_Awem_0020_(Vol. 35-99_) - 5:11</span></div>
+<div class="tl"><span class="ti">16 &nbsp;&nbsp;TGPE_(SLOT)_D_21_3 - 3:12</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="to">Total Length: 31:54</div></div></div></div>
+<img class="pi" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/Yaskuo_Robotics_Sound_Worx_Transparent_CD.png" alt="SOUND WORX: DATA">
+<div class="el"><a href="https://twinsbrandservices.com/sound_worx" target="_blank">Purchase</a></div></div>
+<div class="pd" id="p3">
+<div class="pt">LOT#001 at Chidori Bunka</div>
+<div class="pm">2025</div>
+<div class="pm">Multi-channel (9.0) audio installation</div>
+<div class="pm">Collaboration with <a href="https://twinsbrandservices.com" target="_blank">Twins Brand Services</a> and <a href="https://www.instagram.com/pioneer_kamaboko/?hl=en" target="_blank">Pioneer Kamaboko</a></div>
+<div class="ds">Nine-channel audio installation. Nine speakers placed among sculptures, each delivering an independent generative audio stream driven by granular playback.</div>
+<img class="pi" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/YR_LOT001_CB_POSTER_1.JPG" alt="LOT#001 at Chidori Bunka">
+</div>
+<div class="pd" id="p2">
+<div class="pt">Curls</div>
+<div class="pm">2017</div>
+<div class="pm">Tape + digital download</div>
+<div class="pm">Collaboration with <a href="https://www.grayschiller.com" target="_blank">Gray Schiller</a></div>
+<div class="ds">The recorded output of <a href="#" onclick="document.querySelector('[data-project=p1]').click();return false;">Bending</a>, compiled into ten tracks. Guitar, vocals and synthesizer run through chains of effect pedals, captured onto loopers and arranged to tape.
+<div class="ts"><div class="tt">Tracklist</div><div class="tc">
+<div class="tl"><span class="ti">1 &nbsp;&nbsp;Bowl Cut - 05:14</span></div>
+<div class="tl"><span class="ti">2 &nbsp;&nbsp;Dixie Cup Looper - 07:50</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">3 &nbsp;&nbsp;Earring Garden - 06:13</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">4 &nbsp;&nbsp;Tailgating - 03:52</span></div>
+<div class="tl"><span class="ti">5 &nbsp;&nbsp;Midwest Garage - 07:56</span><span class="pb" onclick="startPreview(this)">preview</span><span class="td" onclick="stopPreview(this)">&#9654;&#65038; 0:00</span></div>
+<div class="tl"><span class="ti">6 &nbsp;&nbsp;Lip Balm - 01:12</span></div>
+<div class="tl"><span class="ti">7 &nbsp;&nbsp;Illinois Rodeo - 02:25</span></div>
+<div class="tl"><span class="ti">8 &nbsp;&nbsp;Cycles - 01:34</span></div>
+<div class="tl"><span class="ti">9 &nbsp;&nbsp;Glue - 02:23</span></div>
+<div class="tl"><span class="ti">10 &nbsp;&nbsp;Braid - 01:05</span></div>
+<div class="to">Total Length: 39:44</div></div></div></div>
+<img class="pi" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/Curls.png" alt="Curls">
+<div class="el"><a href="https://bendingmusic.bandcamp.com/album/curls" target="_blank">Listen</a></div></div>
+<div class="pd" id="p1">
+<div class="pt">Bending</div>
+<div class="pm">2016</div>
+<div class="pm">Sound project</div>
+<div class="pm">Collaboration with <a href="https://www.grayschiller.com" target="_blank">Gray Schiller</a></div>
+<div class="ds">Collaboration with <a href="https://www.grayschiller.com" target="_blank">Gray Schiller</a>, active 2016 to 2018. Sound collage, glitch and drone explored through improvisation. Recording revolved around a shared output, a small mixing board split through two pairs of headphones. Bending released <a href="#" onclick="document.querySelector('[data-project=p2]').click();return false;">Curls</a> and toured extensively.</div>
+<img class="pi" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/Bending_Jenna_Pollack_2.png" alt="Bending">
+<div class="el"><a href="https://bendingmusic.bandcamp.com/album/curls" target="_blank">Listen</a></div></div>
+</div>
+<script>
+var cT=null,cA=null;
+function startPreview(e){if(cT){var x=document.querySelector('.td.a');if(x)stopPreview(x);}var t=e.nextElementSibling;e.style.display='none';t.classList.add('a');var i=e.closest('.tl').querySelector('.ti').innerText;if(i.indexOf('Hyperlight')>-1)cA=new Audio('https://audio.jukehost.co.uk/qhPVPDaKw6V7dsvnnMLAdNvlX455DmuU');else if(i.indexOf('Shape of Something')>-1)cA=new Audio('https://audio.jukehost.co.uk/OJTSw9Ogk3cihfi1kvKfhCBbFirfFP9r');else if(i.indexOf('Motion')>-1)cA=new Audio('https://audio.jukehost.co.uk/xcnV0gx8QEIs1e5A9EnRjXydZx5AfU32');else if(i.indexOf('Drag_Net')>-1)cA=new Audio('https://audio.jukehost.co.uk/EdMb7IYf7j5h9ozFnVYGBtpqHr57J9G9');else if(i.indexOf('YRLLC')>-1)cA=new Audio('https://audio.jukehost.co.uk/ZwrgTN67rUrGQ6HlkAi1STV51FlDgg2H');else if(i.indexOf('CAS_TLTP')>-1)cA=new Audio('https://audio.jukehost.co.uk/UmlWMIcPAZHOAlr9iwkjlt6AIuKCJqJf');else if(i.indexOf('TGPE')>-1)cA=new Audio('https://audio.jukehost.co.uk/Enbe9cJGO2MGWd7lvDjvguyJRMzFlwJG');else if(i.indexOf('Dixie Cup')>-1)cA=new Audio('https://audio.jukehost.co.uk/bwW2nu2ZvQY6YezdkQcZsAyTFdCU5Szx');else if(i.indexOf('Earring Garden')>-1)cA=new Audio('https://audio.jukehost.co.uk/m3AmZIxwBjKWYoLYoBAzmJlsgunYOqD3');else if(i.indexOf('Midwest Garage')>-1)cA=new Audio('https://audio.jukehost.co.uk/hyJtMe98vTXih6PuQF52DqaEvkyqSHId');if(cA)cA.play();var s=0;cT=setInterval(function(){s++;t.innerHTML='\u25B6\uFE0E 0:'+(s<10?'0':'')+s;if(s>=30)stopPreview(t);},1000);}
+function stopPreview(e){if(cT){clearInterval(cT);cT=null;}if(cA){cA.pause();cA.currentTime=0;cA=null;}var p=e.previousElementSibling;e.classList.remove('a');e.innerHTML='\u25B6\uFE0E 0:00';p.style.display='inline-block';}
+var wi=document.querySelectorAll('.wi'),pd=document.querySelectorAll('.pd'),wl=document.querySelector('.wl');
+wi.forEach(function(item){item.addEventListener('click',function(){var id=this.dataset.project;wi.forEach(function(w){w.classList.remove('a');});pd.forEach(function(p){p.classList.remove('a');});this.classList.add('a');wl.classList.add('ha');var tp=document.getElementById(id);if(tp){tp.classList.add('a');setTimeout(function(){tp.scrollIntoView({behavior:'smooth',block:'start'});},100);}});});
+</script>
 </body>
 </html>

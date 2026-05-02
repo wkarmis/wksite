@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mailing list — Will Karmis</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#fff;color:#000;font-size:14px;line-height:1.45}
+.c{max-width:528px;padding:32px;min-height:100vh}
+.cn{margin-bottom:4px;font-weight:400;letter-spacing:.01em}
+.ci{margin-bottom:4px;opacity:.5}
+.ci a{color:#000;text-decoration:none;transition:opacity .2s}.ci a:hover{opacity:1}
+.ct{margin-bottom:48px}
+.ml{margin-top:0}
+.mt{font-size:14px;margin-bottom:16px;font-weight:400}
+.ms{margin-bottom:24px;opacity:.5;font-size:14px;line-height:1.55}
+.mf{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.me{flex:1;min-width:180px;padding:4px 0;font-size:14px;font-family:inherit;color:#000;background:transparent;border:none;border-bottom:1px solid #000;border-radius:0;outline:none}
+.me::placeholder{color:#000;opacity:.5}
+.mh{position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0;width:0}
+.mb{padding:0;font-size:14px;font-family:inherit;color:#000;background:transparent;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:2px;opacity:.5;transition:opacity .2s}
+.mb:hover:not(:disabled){opacity:1}
+.mb:disabled{opacity:.3;cursor:not-allowed}
+.mm{width:100%;margin-top:8px;font-size:12px;opacity:.5;min-height:14px}
+.bk{margin-top:48px;font-size:12px;opacity:.5}
+.bk a{color:#000;text-decoration:underline;text-underline-offset:2px;transition:opacity .2s}
+.bk a:hover{opacity:1}
+@media(max-width:768px){.c{padding:24px}}
+</style>
+</head>
+<body>
+<div class="c">
+<div class="ct">
+<div class="cn">Will Karmis</div>
+<div class="ci"><a href="mailto:info@willkarmis.com">info@willkarmis.com</a></div>
+<div class="ci"><a href="https://instagram.com/willkarmis" target="_blank">@willkarmis</a></div>
+</div>
+<div class="ml">
+<div class="mt">Mailing list</div>
+<div class="ms">Thanks for your interest in staying connected. I'll send the occasional update on new releases, ongoing projects and upcoming performances.</div>
+<form id="mf" class="mf">
+<input type="email" class="me" id="me" placeholder="email" autocomplete="email" inputmode="email" spellcheck="false" required>
+<input type="text" class="mh" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="mb" id="mb">Subscribe</button>
+<div class="mm" id="mm"></div>
+</form>
+</div>
+<div class="bk"><a href="/">willkarmis.com</a></div>
+</div>
+<script>
+document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('mb'),m=document.getElementById('mm'),i=document.getElementById('me'),h=document.getElementById('website');b.disabled=true;b.textContent='Subscribing\u2026';fetch('https://script.google.com/macros/s/AKfycbzeARBAgeFRyt4rsrcTrRI2vLn9OIsvqR2Ev2uZpVy5L7QEgfQjhgxN4M1xw_76Gr4g/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:i.value,website:h.value})}).then(function(){m.textContent='Thanks for subscribing.';i.value='';h.value='';}).catch(function(){m.textContent='Something went wrong. Please try again.';}).finally(function(){b.disabled=false;b.textContent='Subscribe';});});
+</script>
+</body>
+</html>

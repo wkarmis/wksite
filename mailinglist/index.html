@@ -50,7 +50,7 @@ body{font-family:Arial,sans-serif;background:#fff;color:#000;font-size:14px;line
 <div class="bk"><a href="/">willkarmis.com</a></div>
 </div>
 <script>
-document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('mb'),m=document.getElementById('mm'),i=document.getElementById('me'),h=document.getElementById('website');b.disabled=true;b.textContent='Subscribing\u2026';fetch('https://script.google.com/macros/s/AKfycbwevPsx7yFIWWF6urvjhVftvpOm_z5fhzZS3RWDWevrw3tGxFOeOgxNjAdXoxoI7XKa/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:i.value,website:h.value})}).then(function(){m.textContent='Thanks for subscribing.';i.value='';h.value='';}).catch(function(){m.textContent='Something went wrong. Please try again.';}).finally(function(){b.disabled=false;b.textContent='Subscribe';});});
+document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('mb'),m=document.getElementById('mm'),i=document.getElementById('me'),h=document.getElementById('website');b.disabled=true;b.textContent='Subscribing\u2026';fetch('https://script.google.com/a/macros/willkarmis.com/s/AKfycbwylTqYDU8GY5yiLlyVbmZN8PNELLwNX9bw4DUIUGfJxYBejeZC5Hon5PrWsgdMqHvLlg/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:i.value,website:h.value})}).then(function(){m.textContent='Thanks for subscribing.';i.value='';h.value='';}).catch(function(){m.textContent='Something went wrong. Please try again.';}).finally(function(){b.disabled=false;b.textContent='Subscribe';});});
 </script>
 </body>
 </html>

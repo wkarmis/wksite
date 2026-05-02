@@ -43,6 +43,16 @@ body{font-family:Arial,sans-serif;background:#fff;color:#000;font-size:14px;line
 .tt{margin-bottom:8px}
 .tc{font-size:12px;line-height:1.45;opacity:.5}
 .to{margin-top:12px}
+.ml{margin-top:48px;padding-top:32px;border-top:1px solid rgba(0,0,0,.15)}
+.mt{font-size:14px;margin-bottom:16px;font-weight:400}
+.mf{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.me{flex:1;min-width:180px;padding:4px 0;font-size:14px;font-family:inherit;color:#000;background:transparent;border:none;border-bottom:1px solid #000;border-radius:0;outline:none}
+.me::placeholder{color:#000;opacity:.5}
+.mh{position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0;width:0}
+.mb{padding:0;font-size:14px;font-family:inherit;color:#000;background:transparent;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:2px;opacity:.5;transition:opacity .2s}
+.mb:hover:not(:disabled){opacity:1}
+.mb:disabled{opacity:.3;cursor:not-allowed}
+.mm{width:100%;margin-top:8px;font-size:12px;opacity:.5;min-height:14px}
 @media(max-width:768px){.c{padding:24px}}
 </style>
 </head>
@@ -145,6 +155,15 @@ body{font-family:Arial,sans-serif;background:#fff;color:#000;font-size:14px;line
 <div class="ds">Active 2016 to 2018. Sound collage, glitch and drone explored through improvisation. Recording revolved around a shared output, a small mixing board split through two pairs of headphones. Bending released <a href="#" onclick="document.querySelector('[data-project=p2]').click();return false;">Curls</a> and toured extensively.</div>
 <img class="pi" src="https://raw.githubusercontent.com/wkarmis/images/refs/heads/main/Bending_Jenna_Pollack_2.png" alt="Bending">
 <div class="el"><a href="https://bendingmusic.bandcamp.com/album/curls" target="_blank">Listen</a></div></div>
+<div class="ml">
+<div class="mt">Mailing list</div>
+<form id="mf" class="mf">
+<input type="email" class="me" id="me" placeholder="email" autocomplete="email" inputmode="email" spellcheck="false" required>
+<input type="text" class="mh" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="mb" id="mb">Subscribe</button>
+<div class="mm" id="mm"></div>
+</form>
+</div>
 </div>
 <script>
 var cT=null,cA=null;
@@ -152,6 +171,7 @@ function startPreview(e){if(cT){var x=document.querySelector('.td.a');if(x)stopP
 function stopPreview(e){if(cT){clearInterval(cT);cT=null;}if(cA){cA.pause();cA.currentTime=0;cA=null;}var p=e.previousElementSibling;e.classList.remove('a');e.innerHTML='\u25B6\uFE0E 0:00';p.style.display='inline-block';}
 var wi=document.querySelectorAll('.wi'),pd=document.querySelectorAll('.pd'),wl=document.querySelector('.wl');
 wi.forEach(function(item){item.addEventListener('click',function(){var id=this.dataset.project;wi.forEach(function(w){w.classList.remove('a');});pd.forEach(function(p){p.classList.remove('a');});this.classList.add('a');wl.classList.add('ha');var tp=document.getElementById(id);if(tp){tp.classList.add('a');setTimeout(function(){tp.scrollIntoView({behavior:'smooth',block:'start'});},100);}});});
+document.getElementById('mf').addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('mb'),m=document.getElementById('mm'),i=document.getElementById('me'),h=document.getElementById('website');b.disabled=true;b.textContent='Subscribing\u2026';fetch('https://script.google.com/macros/s/AKfycbzgPlvn-UxGznaZihHMmzsBM8fQps6YKr4ip_MxtH97Z8AhVm8ffEUp13z8T5uAO-0n/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:i.value,website:h.value})}).then(function(){m.textContent='Thanks for subscribing.';i.value='';h.value='';}).catch(function(){m.textContent='Something went wrong. Please try again.';}).finally(function(){b.disabled=false;b.textContent='Subscribe';});});
 </script>
 </body>
 </html>
